@@ -1,0 +1,46 @@
+<config>
+    <menu>
+        <lbs71 translate="title" module="lbs71_adminrefunds">
+            <title>71Lbs</title>
+            <sort_order>1</sort_order>
+            <children>
+                <example>
+                    <title>View Refunds</title>
+                    <sort_order>1</sort_order>
+                    <action>adminhtml/adminrefunds/index</action>
+                </example>
+            </children>
+            <children>
+                <about>
+                    <title>About</title>
+                    <sort_order>2</sort_order>
+                    <action>adminhtml/adminrefunds/about</action>
+                </about>
+            </children>
+        </lbs71>
+    </menu>
+    
+    <acl>
+        <resources>
+            <admin>
+                <children>                
+                    <lbs71 translate="title" module="lbs71_adminrefunds">
+                        <title>Top Level 71lbs Refunds Menu Item</title>
+                        <sort_order>1</sort_order>
+                        <children>
+                            <example>
+                                <title>Refunds Menu Item</title>
+                            </example>
+                        </children>
+                        <children>
+                            <about>
+                                <title>About Menu Item</title>
+                            </about>
+                        </children>
+                    </lbs71>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    
+</config> 

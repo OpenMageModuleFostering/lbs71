@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<adminhtml_adminrefunds_index>	
+		<reference name="content">			
+			<block type="lbs71_refunds/adminhtml_form" name="form" template="lbs71/loginform.phtml" />
+		</reference>
+	</adminhtml_adminrefunds_index>	
+</layout>

@@ -1,0 +1,114 @@
+<?php 
+    $user = Mage::getSingleton('admin/session')->getUser();    
+ ?>  
+     <!-- JS libraries -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+// <![CDATA[
+   // noConflict so we can use both libraries
+   var $j = jQuery.noConflict();
+//]]>
+
+	$j(document).ready(function(){
+	   $j( "#signupEmail" ).keyup(function() {
+          $j("#pass_block").hide("fast");
+          $j("#user_msj").html("");
+          $j('#enviar').hide("fast");
+        });
+		$j("#check_email").click(function(){				
+                //myurl = "http://localhost:/json_test/file.json";
+				//myurl = "http://localhost:3000/users.jsonp?callback=parseUser";
+				//myurl = "http://localhost:3000/users.json";
+				//myurl = "https://54.221.203.199/api/session.jsonp?callback=data";	
+                //myurl = "http://localhost:3000/api/session/exist.jsonp?callback=data";                					
+                //myurl = "https://54.221.203.199/api/session/exist.jsonp?callback=data";
+                myurl = "https://www.71lbs.com/api/session/exist.jsonp?callback=data";
+                 //myurl = "http://localhost:3000/api/session/exist.jsonp?callback=data";
+				
+				//data = {"created_at":null,"email":"Andrea2@gmail.com","id":null,"name":"Andrea2","updated_at":null};
+				var data = {"email": $j("#signupEmail").val(),"password":$j("#signupPass").val()};                
+                //data = { "id":"DS5V3DA6","from":"01-01-10", "to":"10-10-13", "acnt":"fdx" };
+				$j.ajaxSetup({
+					error: function(jqXHR, exception) {
+						if (jqXHR.status === 0) {
+							alert('Not connect.\n Verify Network.');
+						} else if (jqXHR.status == 404) {
+							alert('Requested page not found. [404]');
+						} else if (jqXHR.status == 500) {
+							alert('Internal Server Error [500].');
+						} else if (exception === 'parsererror') {
+							alert('Requested JSON parse failed.');
+						} else if (exception === 'timeout') {
+							alert('Time out error.');
+						} else if (exception === 'abort') {
+							alert('Ajax request aborted.');
+						} else {
+							alert('Uncaught Error.\n' + jqXHR.responseText);
+						}
+					}
+				});
+                
+				$j.ajax({
+				  url: myurl,
+				  crossDomain: true,				  
+                  type: "GET",
+				  contentType: 'application/json',
+				  dataType: "jsonp",
+				  data: data,
+				  success: function (data) {
+					$j("#user_msj").html(data.msj);
+                    if(!data.exist){						
+                        $j("#pass_block").show("fast");
+					}
+                    else{
+                        $j("#pass_block").hide("fast");
+                    }
+				  
+                  //$j('#enviar').removeAttr("disabled");
+                  $j('#enviar').show("fast");
+                  }
+                  
+				});
+                
+		});		
+	});
+   </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<div class="content-header">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3><?= $this->__('71lbs Login form') ?></h3></td>
+            <td class="a-right">                
+                <button onclick="editForm.submit()" class="scalable save" type="button" id="enviar" style="display: none;"><span>Login</span></button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="entry-edit">
+    <form id="edit_form" autocomplete="off" name="edit_form" method="post" action="<?php echo $this->getUrl('*/*/post') ?>">
+        <input name="form_key" type="hidden" value="<?php echo Mage::
+getSingleton('core/session')->getFormKey() ?>" />
+        <h4 class="icon-head head-edit-form fieldset-legend"><?= $this->__('Enter the email address associated with your account of 71lbs') ?></h4>
+        <fieldset id="my-fieldset">
+            <table cellspacing="0" class="form-list">
+                <tr>
+                    <td class="label"><?= $this->__('Email') ?> <span class="required">*</span></td>                    
+                    <td class="input-ele"><input id="signupEmail" class="usr-form" type="email" name="email" placeholder="1. Enter your email..." defaultVal="1. Enter your email..." value="<?php echo $user['email']; ?>" required/>
+                    <a href="javascript:;" id="check_email">Check</a>
+                    <p id="user_msj"></p>
+                    </td>                                                            
+                </tr>
+                <tr style="display: none;" id="pass_block">
+                    <td class="label"><?= $this->__('Password') ?> <span class="required">*</span></td>
+                    <td class="input-ele"><input id="signupPass" class="usr-form" type="password" name="userPass" placeholder="2. Enter your password..." defaultVal="2. Enter your password..." required/></td>
+                </tr>
+            </table>            
+            <a href="https://www.71lbs.com/" target="_blank">Sign Up into 71lbs</a>
+        </fieldset>
+    </form>	
+</div>
+<script type="text/javascript">
+    var editForm = new varienForm('edit_form');
+</script>
+<div id='resultarea'>
+</div>

@@ -1,0 +1,411 @@
+
+	<div id="ref_content" class="contents" style="overflow:hidden">
+    <!-- 1140px Grid styles for IE -->
+	<!--[if lte IE 9]><link rel="stylesheet" href="https://www.71lbs.com/assets/ie.css" type="text/css" media="screen" /><![endif]-->
+	<!-- The 1140px Grid - http://cssgrid.net/ -->
+	<link rel="stylesheet" href="https://www.71lbs.com/assets/1140.css" type="text/css" media="screen" />
+  <!-- Jquery ui styles -->
+	<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/redmond/jquery-ui.css" media="screen" rel="stylesheet" type="text/css" />
+  	<!-- Your styles -->
+	<link rel="stylesheet" href="https://www.71lbs.com/assets/businesses.css" type="text/css" media="screen" />	
+	<link rel="stylesheet" href="https://www.71lbs.com/assets/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="https://www.71lbs.com/assets/users.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="https://www.71lbs.com/assets/signup.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="https://www.71lbs.com/assets/signup2.css" type="text/css" media="screen" />
+    <!-- JS libraries -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+ 		<!--[if lte IE 8]>
+	 	<script language="javascript" type="text/javascript" src="/assets/flot/excanvas.min.js"></script>
+	 	<![endif]-->
+		<script language="javascript" type="text/javascript" src="http://localhost:3000/assets/flot/jquery.flot.js"></script>
+		<script language="javascript" type="text/javascript" src="http://localhost:3000/assets/flot/jquery.flot.pie.js"></script>
+        <script type="text/javascript">
+        // <![CDATA[
+        // noConflict so we can use both libraries
+            var $j = jQuery.noConflict();
+        //]]>
+        </script>
+		
+ 		
+  <div id="ref_content" class="contents" style="overflow:hidden">
+                 
+                 <!--[if lte IE 8]>
+                 <script language="javascript" type="text/javascript" src="https://www.71lbs.com/assets/flot/excanvas.min.js"></script>
+                 <![endif]-->
+                <script language="javascript" type="text/javascript" src="https://www.71lbs.com/assets/flot/jquery.flot.js"></script>
+                <script language="javascript" type="text/javascript" src="https://www.71lbs.com/assets/flot/jquery.flot.pie.js"></script>
+                                
+                 <div id="top-info" style="width:<?php echo $result->ref_width ?>px;height:135px;text-align:center;background-color:#E8E8E8;border-radius: 30px;">
+                         
+                         <div id="disp1" style="width:<?php echo $result->ref_width/4 ?>px;float:left;">
+                                 <center>
+                                         <img src="https://www.71lbs.com/assets/ytd-refunds.png" style="height:50px;width:50px;padding-top:5px"></img>
+                                         <div id="ytd-refunds" style="font-size:20px;font-weight:bold;color:white;background-color:rgb(46, 125, 189);width:<?php echo $result->ref_width/6 ?>px;height:24px;"></div>
+                                 </center>
+                                 <span style="font-size:20px">YTD Refunds</span>
+                         </div>
+                         
+                         <div id="disp2" style="width:<?php echo $result->ref_width/4 ?>px;float:left;">
+                                 <center>
+                                         <img src="https://www.71lbs.com/assets/average-refunds.png" style="height:50px;width:50px;padding-top:5px"></img>
+                                         <div id="average-refunds" style="font-size:20px;font-weight:bold;color:white;background-color:rgb(46, 125, 189);width:<?php echo $result->ref_width/6 ?>px;height:24px;"></div>
+                                 </center>
+                                 <span style="font-size:20px">Average Refund</span>
+                         </div>
+                          
+                         <div id="disp3" style="width:<?php echo $result->ref_width/4 ?>px;float:left;">
+                                 <center>
+                                         <img src="https://www.71lbs.com/assets/monthly-shipping-spend.png" style="height:50px;width:50px;padding-top:5px"></img>
+                                         <div id="monthly-shipping-spend" style="font-size:20px;font-weight:bold;color:white;background-color:rgb(46, 125, 189);width:<?php echo $result->ref_width/6 ?>px;height:24px;"></div>
+                                 </center>
+                                 <span style="font-size:20px">Monthly<br>Shipping Spend</span>
+                         </div>
+                                                  
+                         <div id="disp4" style="width:<?php echo $result->ref_width/4 ?>px;float:left;">
+                                 <center>
+                                         <img src="https://www.71lbs.com/assets/accounts-onboarded.png" style="height:50px;width:50px;padding-top:5px"></img>
+                                         <div id="accounts-onboarded" style="font-size:20px;font-weight:bold;color:white;background-color:rgb(46, 125, 189);width:<?php echo $result->ref_width/6 ?>px;height:24px;"></div>
+                                 </center>
+                                 <span style="font-size:20px">Accounts<br>Onboarded</span>
+                         </div>
+                         
+                         <br style="clear: left;" />
+                 </div>
+                 
+                 <br>
+                                  
+                 <div id="flot-charts" style="width:<?php echo $result->ref_width ?>px;text-align:center;">
+                         
+                         <div style="float:left;width:<?php echo $result->ref_width/2 ?>px;height:30px;font-size:20px;font-weight:bold;">Your Refund History</div>
+                         <div style="float:left;width:<?php echo $result->ref_width/2 ?>px;height:30px;font-size:20px;font-weight:bold;">Your Shipping Spend: <span id="total-shipping-spend"></span></div>
+                         
+                         <div id="your-refunds" style="float:left;width:<?php echo $result->ref_width/2 ?>px;height:<?php echo $result->ref_width/2 ?>px"></div>
+                         <div id="shipping-spend" style="float:left;width:<?php echo $result->ref_width/2 ?>px;height:<?php echo $result->ref_width/2 ?>px"></div>
+                                                  
+                         <br style="clear: left;" />
+                         
+                 </div>
+                 
+                 <div id="options" style="width:<?php echo $result->ref_width ?>px;text-align:center;">
+                         
+                         <div id="options1" style="float:left;width:<?php echo $result->ref_width/2 ?>px;text-align:center;">
+                                <div id="bar-display" style="width:<?php echo $result->ref_width/2 ?>px;height:50px"></div>
+                                <br>
+                                <div id="bottons1" style="width:<?php echo $result->ref_width/2 ?>px;height:50px">
+                                         <button onclick="buttonClick('one')" style="width:100px">Graph</button>
+                                         <button onclick="buttonClick('one')" style="width:100px">Table</button>
+                                         <br>
+                                         <button onclick="buttonClick('two')" style="width:100px">YTD</button>
+                                         <button onclick="buttonClick('two')" style="width:100px">This Month</button>
+                                         <button onclick="buttonClick('two')" style="width:100px">Last Month</button>
+                                 </div>
+                         </div>
+                         
+                         <div id="options2" style="float:left;width:<?php echo $result->ref_width/2 ?>px;text-align:center;">
+                                 <div id="pie-display2" style="width:<?php echo $result->ref_width/2 ?>px;height:30px"></div>
+                                 <div id="pie-display" style="width:<?php echo $result->ref_width/2 ?>px;height:20px"></div>
+                                 <br>
+                                 <div id="bottons1" style="width:<?php echo $result->ref_width/2 ?>px;height:50px">
+                                         <button onclick="pieButton('percentage')" style="width:100px">Percent</button>
+                                         <button onclick="pieButton('value')" style="width:100px">$ Value</button>
+                                         <br>
+                                         <button onclick="pieButton('upsfedex')" style="width:100px">FDX & UPS</button>
+                                         <button onclick="pieButton('fedex')" style="width:100px">FDX</button>
+                                         <button onclick="pieButton('ups')" style="width:100px">UPS</button>                 
+                                 </div>                
+                         </div>
+                         
+                         <br style="clear: left;" />
+                         
+                 </div>
+				 
+                <script type="text/javascript">
+                
+                        emptyData = 0
+                        upsSpend = 0
+                        fedexSpend = 0
+                        upsfedexSpend = 0
+                        
+                        <?php if($result->hasFedex) : ?>
+                        fedexSpend =         [        
+                                                                <?php foreach($result->fedexShippingSpendSort as $value) :?>
+																	<?php $type = $value[0] ?>
+                                                                    <?php $amount = $value[1] ?>
+                                                                    <?php $color = $value[2] ?>
+																	<?php if ($amount > 0) :?>
+                                                                        {label: "<?php echo $type ?>", data: <?php echo $amount ?>, color: "hsla(<?php echo $color ?>, 61%, 46%, .9)"},                                                                
+																	<?php endif ?>				
+																<?php endforeach ?>				
+                                                        ]
+                        <?php endif ?>
+                        
+                        <?php if($result->hasUPS) : ?>
+                        upsSpend =                 [        		
+
+                                                                <?php foreach($result->upsShippingSpendSort as $value) :?>
+																	<?php $type = $value[0] ?>
+                                                                    <?php $amount = $value[1] ?>
+                                                                    <?php $color = $value[2] ?>
+																	<?php if ($amount > 0) :?>
+                                                                        {label: "<?php echo $type ?>", data: <?php echo $amount ?>, color: "hsla(<?php echo $color ?>, 61%, 46%, .9)"},                                                                
+																	<?php endif ?>				
+																<?php endforeach ?>																
+                                                        ]
+                        <?php endif ?>
+                        
+                        <?php if($result->hasUPS && $result->hasFedex) : ?>                                
+                        upsfedexSpend =        [                                                                        			
+
+                                                                <?php foreach($result->upsfedexShippingSpendMergeSort as $value) :?>
+																	<?php $type = $value[0] ?>
+                                                                    <?php $amount = $value[1] ?>
+                                                                    <?php $color = $value[2] ?>
+																	<?php if ($amount > 0) :?>
+                                                                        {label: "<?php echo $type ?>", data: <?php echo $amount ?>, color: "hsla(<?php echo $color ?>, 61%, 46%, .9)"},                                                                
+																	<?php endif ?>				
+																<?php endforeach ?>																		
+
+                                                        ]
+                        <?php elseif($result->hasUPS) :?>
+                        upsfedexSpend =        [                                                                        
+																<?php foreach($result->upsShippingSpendSort as $value) :?>
+																	<?php $type = $value[0] ?>
+                                                                    <?php $amount = $value[1] ?>
+                                                                    <?php $color = $value[2] ?>
+																	<?php if ($amount > 0) :?>
+                                                                        {label: "<?php echo $type ?>", data: <?php echo $amount ?>, color: "hsla(<?php echo $color ?>, 61%, 46%, .9)"},                                                                
+																	<?php endif ?>				
+																<?php endforeach ?>																	
+																
+																
+                                                        ]
+                        <?php elseif($result->hasFedex) :?>
+                        upsfedexSpend =        [        
+																
+																<?php foreach($result->fedexShippingSpendSort as $value) :?>
+																	<?php $type = $value[0] ?>
+                                                                    <?php $amount = $value[1] ?>
+                                                                    <?php $color = $value[2] ?>
+																	<?php if ($amount > 0) :?>
+                                                                        {label: "<?php echo $type ?>", data: <?php echo $amount ?>, color: "hsla(<?php echo $color ?>, 61%, 46%, .9)"},                                                                
+																	<?php endif ?>				
+																<?php endforeach ?>																	
+                                                        ]
+                        <?php endif ?>
+                        
+                        <?php if (!is_numeric($result->refundsPerMonth)) :?>
+										refundData =	[	
+															<?php foreach ($result->refundsPerMonth as $month => $refundsPerMonth): ?>
+																[<?php echo $month ?>,<?php echo $refundsPerMonth->refundAmt ?>],
+															<?php endforeach; ?>															
+															
+														]
+                        <?php else :?>
+                                refundData = [ [1,-1] ]
+                        <?php endif ?>
+                        
+                        shipper = "upsfedex"
+                        showType = "percentage"
+                        
+                        pieButton(shipper)
+                        graphButton('')
+                        
+                        $j("#ytd-refunds").html("<?php echo $result->totalRefundAmt ?>");
+                        $j("#average-refunds").html("<?php echo $result->averageRefunds ?>");
+                        $j("#monthly-shipping-spend").html("<?php echo $result->totalShippingSpendPerMonth ?>");
+                        $j("#accounts-onboarded").html("<?php echo $result->numOfAccounts ?>");
+                        
+                        $j("#shipping-spend").bind("plothover", pieHover);
+                        //$j("#shipping-spend").bind("plotclick", pieClick);
+                        
+                        function pieHover(event, pos, obj) 
+                        {
+                                if (!obj)
+                                        return;
+                                        
+                                percent = parseFloat(obj.series.percent).toFixed(2);
+                                dollarValue = (obj.series.data[0][1] + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+                                $j("#pie-display2").html('<span style="font-weight: bold; color: '+obj.series.color+'">'+obj.series.label+' ('+percent+'%): $'+dollarValue+'</span>');
+                        }
+                        
+                        function pieClick(event, pos, obj) 
+                        {
+                                if (!obj)
+                                        return;
+                                        
+                                percent = parseFloat(obj.series.percent).toFixed(2);
+                                
+                                
+                                alert('WHATEVER YOU WANT HERE');
+                        }
+                        
+                        function pieButton(input)
+                        {
+                                $j("#pie-display2").html('')
+                        
+                                if (input == "fedex")
+                                {
+                                        showing = "fedex"
+                                        data = fedexSpend
+                                        $j("#total-shipping-spend").html("<?php echo $result->totalFedex ?>");
+                                        
+                                        if (showType == "percentage")
+                                                $j("#pie-display").html("Displaying: <b>FDX (Percent)</b>");
+                                        else
+                                                $j("#pie-display").html("Displaying: <b>FDX ($ Value)</b>");
+                                }
+                                else if (input == "ups")
+                                {
+                                        showing = "ups"
+                                        data = upsSpend
+                                        $j("#total-shipping-spend").html("<?php echo $result->totalUPS ?>");
+                                        
+                                        if (showType == "percentage")
+                                                $j("#pie-display").html("Displaying: <b>UPS (Percent)</b>");
+                                        else
+                                                $j("#pie-display").html("Displaying: <b>UPS ($ Value)</b>");
+                                }
+                                else if (input == "upsfedex")
+                                {
+                                        showing = "upsfedex"
+                                        data = upsfedexSpend
+                                        $j("#total-shipping-spend").html("<?php echo $result->totalUPSFedex ?>");
+                                        
+                                        if (showType == "percentage")
+                                                $j("#pie-display").html("Displaying: <b>FDX & UPS (Percent)</b>");
+                                        else
+                                                $j("#pie-display").html("Displaying: <b>FDX & UPS ($ Value)</b>");
+                                }
+                                
+                                if (input == "percentage")
+                                {
+                                        showType = "percentage"
+                                        
+                                        if (showing == "ups")
+                                                $j("#pie-display").html("Displaying: <b>UPS (Percent)</b>");
+                                        else if (showing == "fedex")
+                                                $j("#pie-display").html("Displaying: <b>FDX (Percent)</b>");
+                                        else
+                                                $j("#pie-display").html("Displaying: <b>FDX & UPS (Percent)</b>");
+                                }
+                                else if (input == "value")
+                                {
+                                        showType = "value"
+                                        
+                                        if (showing == "ups")
+                                                $j("#pie-display").html("Displaying: <b>UPS ($ Value)</b>");
+                                        else if (showing == "fedex")
+                                                $j("#pie-display").html("Displaying: <b>FDX ($ Value)</b>");
+                                        else
+                                                $j("#pie-display").html("Displaying: <b>FDX & UPS ($ Value)</b>");
+                                }
+                                
+                                if (data != 0)
+                                {
+                                        $j.plot($j("#shipping-spend"), data,
+                                        {
+                                                series: 
+                                                {
+                                                        pie: 
+                                                        {
+                                                                show: true,
+                                                                radius: .9,
+                                                                
+                                                                label: 
+                                                                {
+                                                                    show: true,
+                                                                    radius: .5,
+                                                                    threshold: 0.01,
+                                                                    
+                                                                    formatter: function (label, series) 
+                                                                    {        
+                                                                            if (showType == "value")
+                                                                                    return '<div style="border:1px solid grey;font-size:8pt;text-align:center;padding:5px;color:white;">' + label + ': $' + (series.data[0][1] + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + '</div>';
+                                                                            else if (showType == "percentage")
+                                                                                    return '<div style="border:1px solid grey;font-size:8pt;text-align:center;padding:5px;color:white;">' + label + ': ' + series.percent.toFixed(1) + '%</div>';
+                                                                    },
+                                                                    
+                                                                    borderWidth: 0,
+                                                                    
+                                                                    background: 
+                                                                    {
+                                                                            opacity: .9
+                                                                    }
+                                                                }
+                                                        }
+                                                },
+                                                
+                                                grid: 
+                                                {
+                                                        hoverable: true,
+                                                        clickable: true
+                                                },
+                                        
+                                                legend: { show: false },
+                                        
+                                        });
+                                }
+                                else
+                                {
+                                        $j("#shipping-spend").html('<img style="height:<?php echo $result->ref_width/2 ?>px;width:<?php echo $result->ref_width/2 ?>px;padding-top:5px" src="https://www.71lbs.com/assets/no-data.png"></img>');
+                                }
+                        }
+                        
+                        function graphButton(input)
+                        {
+                                var monthNames = [ "", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+                        
+                                currMonth = new Date().getMonth() + 1
+                        
+                                lowestMonth = refundData[0][0]
+                                
+                                for (i=0; i<refundData.length; i++)
+                                {
+                                        if (refundData[i][0] < lowestMonth)
+                                                lowestMonth = refundData[i][0]
+                                }
+                        
+                                data123 =        [
+                                                                {
+                                                                        color: "rgb(46, 125, 189)",
+                                                                        label: "Refunds Per Month",
+                                                                        data: refundData,
+                                                                        bars: 
+                                                                        {
+                                                                                show: true,
+                                                                                barWidth: .7,
+                                                                                fill: .9,
+                                                                                align: "center"
+                                                                        }   
+                                                                }
+                                                        ]
+                        
+                                $j.plot($j("#your-refunds"),data123,
+                                {                                
+                                        xaxis: 
+                                        {
+                                                autoscaleMargin: .1,
+                                                ticks: [ [1,'Jan'],[2,'Feb'],[3,'Mar'],[4,'Apr'],[5,'May'],[6,'Jun'],[7,'Jul'],[8,'Aug'],[9,'Sep'],[10,'Oct'],[11,'Nov'],[12,'Dec'] ]
+                                        },
+                                        
+                                        yaxis: 
+                                        {
+                                                min: 0,
+                                                ticks: 10,
+                                            tickFormatter:         function(val, axis)
+                                                                            {
+                                                                                        return "$" + (val.toFixed(2) + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+                                                                                }
+                                    },
+                                        
+                                        legend: { show: false }
+                                });
+                        }
+
+                </script>
+
+                
+
+         </div> <!-- end refunds -->

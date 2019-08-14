@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/lbs71",
+    "type": "magento-module",
+    "license": "OSL",
+    "homepage": "",
+    "description": "71lbs integrates functionality in magento, shows a graph, dasboard refunds.",
+    "authors": [
+    {
+        "name": "Jose",
+        "email": "jose@71lbs.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

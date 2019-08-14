@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+    <name>lbs71</name>
+    <version>0.1.0.9</version>
+    <stability>stable</stability>
+    <license>OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>71lbs integrates functionality in magento, shows a graph, dasboard refunds.</summary>
+    <description>Did you know that if your overnight (works on ground too!) FedEx/UPS shipment is late, even by 60 seconds, you should get 100% of your money back? Not many people or companies do. $2 Billion dollars are left unclaimed every year. As an ecommerce merchant, you are most likely incurring 10% of your sales in shipping costs. 71lbs is making this process very simple and easy. We have NO sign up fees and NO monthly fees. We audit your shipments and the credit goes directly to your FedEx/UPS account. We take a 40% fee off the refund. You keep 60%. Chances are, you were most likely leaving that money on the table too. We only make money if we save you money. Our average customers typically save 4-6% of shipping costs. Our team spent decades in the shipping industry. We have worn your shoes. We were also shippers like yourself. We have also worn the carriers shoes, having worked for FedEx and DHL. Visit us @ www.71lbs.com</description>
+    <notes>First Version of 71lbs magento extension:&#xD;
+- improving auth security in magento, add user check email validation</notes>
+    <authors><author><name>Jose</name><user>jose</user><email>jose@71lbs.com</email></author></authors>
+    <date>2014-01-07</date>
+    <time>19:54:22</time>
+    <contents><target name="magecommunity"><dir name="lbs71"><dir name="Adminrefunds"><dir name="Helper"><file name="Data.php" hash="f67bbcee1a0dc3ae098f1be7dbe8b8dd"/></dir><dir name="controllers"><file name="AdminRefundsController.php" hash="e34be3af35557f01cde71bba3155d1b7"/></dir><dir name="etc"><file name="adminhtml.xml" hash="55ce2355972a6f5f291866632e58f5a9"/><file name="config.xml" hash="2973fe59a6d8bbfd4b7f5d4ef11a175c"/></dir></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="adminrefunds"><file name="_analytics.phtml" hash="e1a89398abcf4e50dd947f84cf12d2dd"/><file name="_no_analytics.phtml" hash="4093e0e733aa1dafcf04ac498f4264c5"/><file name="about.phtml" hash="bdef28c10b8e35233315a60c0bea8fcf"/><file name="loginform.phtml" hash="172f8d04e37ef043682f35412ea985fd"/><file name="refunds.phtml" hash="365d17bebdabf52aba2be4283bd8c417"/></dir></dir><dir name="layout"><file name="lbs71_refunds.xml" hash="e51300247881edf596bb80c0dee3080a"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Lbs71_Adminrefunds.xml" hash="ce98574fb38a544d2ea26c9e0243bcdd"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>5.4.16</max></php></required></dependencies>
+</package>
