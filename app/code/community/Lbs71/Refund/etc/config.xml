@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Lbs71_Refund>
+            <version>2.0.0</version>
+        </Lbs71_Refund>
+    </modules>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Lbs71_Refund after="Mage_Adminhtml">Lbs71_Refund</Lbs71_Refund>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    
+    <global>
+        <helpers>
+            <lbs71_refund>
+                <class>Lbs71_Refund_Helper</class>
+            </lbs71_refund>
+        </helpers>
+    </global>
+</config>

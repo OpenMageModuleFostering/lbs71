@@ -1,20 +1,20 @@
 <config>
     <menu>
-        <lbs71 translate="title" module="lbs71_adminrefunds">
+        <lbs71 translate="title" module="lbs71_refund">
             <title>71Lbs</title>
-            <sort_order>1</sort_order>
+            <sort_order>89</sort_order>
             <children>
-                <example>
+                <shipping>
                     <title>View Refunds</title>
                     <sort_order>1</sort_order>
-                    <action>adminhtml/adminrefunds/index</action>
-                </example>
+                    <action>adminhtml/refund/index</action>
+                </shipping>
             </children>
             <children>
                 <about>
                     <title>About</title>
                     <sort_order>2</sort_order>
-                    <action>adminhtml/adminrefunds/about</action>
+                    <action>adminhtml/refund/about</action>
                 </about>
             </children>
         </lbs71>
@@ -24,13 +24,13 @@
         <resources>
             <admin>
                 <children>                
-                    <lbs71 translate="title" module="lbs71_adminrefunds">
+                    <lbs71 translate="title" module="lbs71_refund">
                         <title>Top Level 71lbs Refunds Menu Item</title>
                         <sort_order>1</sort_order>
                         <children>
-                            <example>
+                            <shipping>
                                 <title>Refunds Menu Item</title>
-                            </example>
+                            </shipping>
                         </children>
                         <children>
                             <about>
