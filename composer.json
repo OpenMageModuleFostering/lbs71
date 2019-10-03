@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/lbs71",
+    "name": "openmage-module-fostering\/lbs71",
     "type": "magento-module",
-    "license": "OSL",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "71lbs integrates functionality in magento, shows a graph, dasboard refunds.",
     "authors": [
